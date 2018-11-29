@@ -4,39 +4,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- <meta charset="utf-8">
-	<meta name="viewport" conent="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>MY MUSIC DATABASE</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-	<script type="text/javascript" src="./js/main.js"></script> -->
+
 	<?php include_once("./templates/header.php"); ?>
 </head>
 <body>
 	
 	<?php
-	$sql= "SELECT ";
-	$sql.=$_POST['song_query'];
-	echo $sql;
-	// $result = mysqli_query($conn,"SELECT * FROM song;");
-	// $resultcheck = mysqli_num_rows($result);
-	// if (!$resultcheck=0) {
-	// 	echo "<table class= 'table'>
- //   				 <tr>
- //     				 <th scope='col'>name</th><th scope='col'>length</th>
- //    			</tr>";
-	// 	while($row = mysqli_fetch_assoc($result)){
-	// 		echo " <tr> 
-	// 				<th scope='row'>{$row['name']}</th><td>{$row['length']}</td>
- //    				</tr>";
-	// 	}
-	// 	echo"</table>";
-	// }else{
-	// 	echo "ahhh screw it";
-	// }
+	$sql = "SELECT * from song inner join songartist on (song.song_id=songartist.song_id) inner join artist on (artist.artist_id = songartist.artist_id) where songName='";
+	//$sql = "SELECT * from song natural join songartist natural join artist where songName='";
+	$sql .= $_POST['song_query'];
+	$sql .= "' OR fname='";
+	$sql .= $_POST['song_query'];
+	$sql .= "' OR lname='";
+	$sql .= $_POST['song_query'];
+	$sql .= "'";
+	//$sql .= " UNION SELECT * from song inner join artist on artist_id where fname='";
+	//$sql .= $_POST['song_query'];
+	//$sql .= "'";
+
+
+
+
+
+	echo "running: " . $sql . "<br>";
+
+	//$sql = " SELECT * from song inner join songartist on song.song_id=songartist.song_id inner join artist on artist.artist_id = songartist.artist_id ";
+
+	$result = mysqli_query($conn,$sql);
+
+	if (mysqli_query($conn,$sql) )
+	{
+		echo "query succes \r\n";
+		$rowcount=mysqli_num_rows($result);
+		echo 'row count: ' . $rowcount . "<br>";
+		//echo 'success';
+		while ($row = $result->fetch_assoc()) {
+	    echo "<br>".$row['songName']." by ".$row['fname']." ".$row['lname']." ";
+	    
+	    echo '<a href="';
+	    echo $row['musicLink'];
+	    echo '">YouTube Link</a>';
+
+
+
+	    /*
+	    echo '<iframe width="420" height="315" src=" ';
+	    echo $row['musicLink'];
+	    echo '"></iframe>';
+	    echo "<br>";
+		*/
+		}
+	}
+	else
+	{
+
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;//. mysql_error();
+
+	}
+
+
+
+
 
 ?>
 </body>
