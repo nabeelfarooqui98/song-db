@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2018 at 03:24 PM
+-- Generation Time: Dec 01, 2018 at 05:29 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mymusicexport`
+-- Database: `db_project`
 --
 
 -- --------------------------------------------------------
@@ -79,7 +79,8 @@ CREATE TABLE `artist` (
 
 INSERT INTO `artist` (`artist_id`, `fname`, `lname`, `dateOfBirth`) VALUES
 (1, 'Ariana', 'Grande', '1993-06-26'),
-(2, 'Eminem', NULL, '1972-10-17');
+(2, 'Eminem', NULL, '1972-10-17'),
+(3, 'Bruno', 'Mars', '1985-10-08');
 
 -- --------------------------------------------------------
 
@@ -400,6 +401,40 @@ ALTER TABLE `songgenre`
 ALTER TABLE `songlanguage`
   ADD PRIMARY KEY (`song_id`,`language_id`),
   ADD KEY `language_id` (`language_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `album`
+--
+ALTER TABLE `album`
+  MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `artist`
+--
+ALTER TABLE `artist`
+  MODIFY `artist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `band`
+--
+ALTER TABLE `band`
+  MODIFY `band_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `language`
+--
+ALTER TABLE `language`
+  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `song`
+--
+ALTER TABLE `song`
+  MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

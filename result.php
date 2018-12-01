@@ -89,9 +89,13 @@
 				    $artistname = $row['fname']." ".$row['lname'];
 				    
 				    //echo '<a href="' . $artistname . '">' . $artistname . '</a>	';
-					echo '<a href="artistinfo.php/?fname=' . $row['fname'] . '&lname='. $row['lname'] .'">' . $artistname . '</a>	';
 
-//				    echo $artistname;
+				    //use artist name in link v
+//					echo '<a href="artistinfo.php/?fname=' . $row['fname'] . '&lname='. $row['lname'] .'">' . $artistname . '</a>	';
+
+				    //use artist id
+				    echo '<a href="artistinfo.php/?artist_id=' . $row['artist_id']  .'">' . $artistname . '</a>	';
+
 
 
 

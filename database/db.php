@@ -1,5 +1,5 @@
 <?php
-	$conn = mysqli_connect('localhost','root','','mymusicexport');
+	$conn = mysqli_connect('localhost','root','','db_project');
 	
 	if (mysqli_connect_errno())
   	{
