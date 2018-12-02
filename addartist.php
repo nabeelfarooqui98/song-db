@@ -27,4 +27,24 @@
   </div>
 
 <button type="submit" name="addartist_btn" class="btn btn-primary">Insert Artist</button>
+
+
+<?php
+
+if(isset($_GET['result']))
+
+  if( $_GET['result'] == 'true')
+  {
+    echo "Success!";
+  }
+
+
+if( $_GET['result'] == 'false')
+  {
+    echo "An Error Occured!";
+  }
+
+
+?>
+
 </form>
