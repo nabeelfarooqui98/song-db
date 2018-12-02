@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2018 at 05:29 PM
+-- Generation Time: Dec 02, 2018 at 07:34 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -288,6 +288,26 @@ CREATE TABLE `songlanguage` (
 INSERT INTO `songlanguage` (`song_id`, `language_id`) VALUES
 (1, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `uid` int(7) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`uid`, `username`, `password`) VALUES
+(2, 'nabeel', '12345'),
+(1, 'radheem', '12345');
+
 --
 -- Indexes for dumped tables
 --
@@ -403,6 +423,13 @@ ALTER TABLE `songlanguage`
   ADD KEY `language_id` (`language_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`uid`),
+  ADD UNIQUE KEY `upcheck` (`username`,`password`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -435,6 +462,12 @@ ALTER TABLE `language`
 --
 ALTER TABLE `song`
   MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `uid` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
