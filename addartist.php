@@ -27,7 +27,11 @@
   </div>
 
 <button type="submit" name="addartist_btn" class="btn btn-primary">Insert Artist</button>
+
 <?php
+
+//to display success of fail when we return from the queryhandler (whhich passess the result in url)
+
 if(isset($_GET['result']))
 {
   if( $_GET['result'] == 'true')
@@ -72,11 +76,13 @@ if( $_GET['result'] == 'false')
                 {
                   
                   echo '<tr>';
-                  echo '<th scope="row">' . $row['artist_id'] . '</th>';
-  //                echo '<td>' . $row['artist_id'] . '</td>';
+                  
+                  echo '<th scope="row">' . $row['artist_id'] . '</th>'; //first col aesa show hota hai
                   echo '<td>' . $row['fname'] .     '</td>';
                   echo '<td>' . $row['lname'] .     '</td>';
                   echo '<td>' . $row['dateOfBirth'] .       '</td>';
+                  echo '<td><a href="./queryhandler.php?delete_artist=' . $row['artist_id'] .  '">Delete Artist</a></td>';
+                  
                   echo '</tr>';
 
 //                  echo "<b>".$row['songName']."</b> " . '<a href="' . $row['musicLink'] . '">YouTube Link</a> <br>';
