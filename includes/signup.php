@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['signup-submit']))
 {
-	require 'dbh.php';
+	include('database/db.php');
 
 	$username = $_POST['uid'];
 	$password = $_POST['password'];
@@ -18,7 +18,7 @@ if(isset($_POST['signup-submit']))
 	}
 	else{
 		$sql="SELECT username,password FROM users where username=?";
-		$stmt=mysqli_stmt_init($dbconn);
+		$stmt=mysqli_stmt_init($conn);
 		if(!mysqli_stmt_prepare($stmt,$sql))
 		{
 			header("location: ../loginpage.php?error=sqlfailure");
