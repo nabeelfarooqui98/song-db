@@ -17,13 +17,13 @@ if(isset($_POST['signup-submit']))
 		exit();
 	}
 	else{
-		$sql="SELECT username,password FROM users where username=?";
+		$sql="SELECT username,password FROM users where username=" . $username;
 		
-		$stmt=mysqli_stmt_init($conn);
+//		$stmt=mysqli_stmt_init($conn);
 
 
 
-		if(!mysqli_stmt_prepare($stmt,$sql))
+/*		if(!mysqli_stmt_prepare($stmt,$sql))
 		{
 
 			header("location: ../loginpage.php?error=sqlfailure");
@@ -31,19 +31,56 @@ if(isset($_POST['signup-submit']))
 			exit();
 		}
 		else
-		{
-			mysqli_stmt_bind_param($stmt,"s",$username);
-			mysqli_stmt_execute($stmt);
-			$result= mysqli_stmt_get_result($stmt);
+		{*/
+			//mysqli_stmt_bind_param($stmt,"s",$username);
+			//mysqli_stmt_execute($stmt);
+			//$result= mysqli_stmt_get_result($stmt);
 
-			if($row = mysqli_fetch_assoc($result))
+			if ($result = mysqli_query($conn,$sql))
 			{
-				$pwdCheck = password_verify($password,row['password']);
-				if($pwdCheck==false){
+				//$rowcount=mysqli_num_rows($result);
+
+				$row = $result->fetch_assoc(); //assuming k aik hi result hoga aik username ka 
+				
+				$db_password = $row['password'];
+				//$pwdCheck = password_verify($password,row['password']);
+				//$pwdCheck = true;
+				if($password !=$db_password){
+					header("location: ../loginpage.php?error=invalid_id_passwordxxx");
+					exit();	
+				}
+				elseif($password == $db_password)
+				{
+					session_start();
+					$_SESSION['userID'] = $row['Uid'];
+					$_SESSION['username'] = $row['username'];
+					header("location: ../home.php?loginSuccessful");
+					exit();	
+				}
+				else{
 					header("location: ../loginpage.php?error=invalid_id_password");
 					exit();	
 				}
-				elseif($pwdcheck== true)
+
+				
+			}
+			else
+			{
+
+				echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;//. mysql_error();
+
+			}
+
+/*			if($row = mysqli_fetch_assoc($result))
+			{
+				$db_password = row['password'];
+				//$pwdCheck = password_verify($password,row['password']);
+				//$pwdCheck = true;
+				if($password !=$db_password){
+					header("location: ../loginpage.php?error=invalid_id_passwordxxx");
+					exit();	
+				}
+				elseif($password == $db_password)
 				{
 					session_start();
 					$_SESSION['userID'] = row['Uid'];
@@ -54,13 +91,13 @@ if(isset($_POST['signup-submit']))
 				else{
 					header("location: ../loginpage.php?error=invalid_id_password");
 					exit();	
-				}
+				}*/
 				
-			}
+			//}
 		}
 
 
-	}
+	
 
 
 }
