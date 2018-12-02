@@ -13,13 +13,13 @@
 		  <div class="card-body">
 		    <form class="form-signup" action="includes/signup.php" method= "post">
 			  	<div class="form-group">
-			    	<label for="exampleInputEmail1">Email address</label>
-			    	<input name="uid" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			    	<label>Email address</label>
+			    	<input name="username" type="text" class="form-control"  placeholder="Enter email">
 			    	
 		  		</div>
 		  	 <div class="form-group">
-		    	<label for="exampleInputPassword1">Password</label>
-		    	<input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		    	<label>Password</label>
+		    	<input name="password" type="password" class="form-control" placeholder="Password">
 		 	 </div>
 		  <button name="signup-submit" type="submit" class="btn btn-primary mx-auto">Submit</button>
 		  <span><a href="#">Register</a></span>
