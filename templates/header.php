@@ -24,9 +24,6 @@
       <li class="nav-item active">
         <a class="nav-link" href="./home.php"><i class="fa fa-home">&nbsp;</i>Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-list">&nbsp;</i>favorites</a>
-      </li>
     </ul>
     <ul class="navbar-nav left" align="right">
       <li class="nav-item active">
