@@ -1,11 +1,17 @@
 <?php
+	include_once("./templates/header.php");
 	include_once 'database/db.php';
+	if(!isset($_SESSION['username']))
+	{
+		header("location: ../song-db/loginpage.php");
+		exit();
+	}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 
-	<?php include_once("./templates/header.php"); ?>
+	<?php ?>
 </head>
 <body>
 	
@@ -23,24 +29,23 @@ if(isset($_POST['addartist_btn'])) //agar artist button se is page par aye hain
 	if ($result = mysqli_query($conn,$sql))
 	{
 		echo "artist add success \r\n";
-		header('Location: ./addartist.php?result=true');
+		header('Location: ./modifyartistdb.php?result=true');
      	exit();
 	}
 	else
 	{
 		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
-		header('Location: ./addartist.php?result=false');
+		header('Location: ./modifyartistdb.php?result=false');
 	}
 }
-
-if(isset($_GET['delete_artist']))
+else if(isset($_GET['delete_artist']))
 {
 	$sql = "delete from artist where artist_id=" . $_GET['delete_artist'];
 
 	if ($result = mysqli_query($conn,$sql))
 	{
 		echo "artist deleted \r\n";
-		header('Location: ./addartist.php');
+		header('Location: ./modifyartistdb.php');
      	exit();
 	}
 	else
@@ -49,7 +54,9 @@ if(isset($_GET['delete_artist']))
 		
 	}
 }
+else{
 
+}
 
 
 ?>

@@ -23,12 +23,33 @@
   <div class="collapse navbar-collapse" id="navbarNav" style="width: 100%;">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="./index.php"><i class="fa fa-home">&nbsp;</i>Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="./dash.php"><i class="fa fa-home">&nbsp;</i>Home <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <ul class="navbar-nav left" align="right">
+    <ul class="navbar-nav right" align="right">
       <li class="nav-item active">
-        <a class="nav-link" href="loginpage.php">signin</a>
+        
+
+        <?php 
+        
+        if(!isset($_SESSION["username"]))
+        echo '<a class="nav-link" href="loginpage.php">signin</a>';
+        
+        ?>
+
+
+      </li>
+      <li>
+        <?php 
+        
+        if(isset($_SESSION["username"]))
+        echo '<a class="nav-link" type="button" href="logout.php">logout</a>';
+        
+        ?>
+
+
+
+
       </li>
     </ul>
   </div>

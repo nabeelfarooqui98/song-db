@@ -28,12 +28,8 @@
       <div class="card-body">
         <?php
 
-    		$sql = "SELECT * from song inner join songartist on (song.song_id=songartist.song_id) inner join artist on (artist.artist_id = songartist.artist_id) where songName='";
+    		$sql = "SELECT * from song inner join artist on (artist.artist_id = song.artist_id) where songName='";
 			//$sql = "SELECT * from song natural join songartist natural join artist where songName='";
-			$sql .= $_POST['song_query'];
-			$sql .= "' OR fname='";
-			$sql .= $_POST['song_query'];
-			$sql .= "' OR lname='";
 			$sql .= $_POST['song_query'];
 			$sql .= "'";
 

@@ -1,8 +1,17 @@
+<?php include_once("./templates/header.php"); 
+	if(!isset($_SESSION['username']))
+	{
+		header("location: ../song-db/loginpage.php");
+		exit();
+	}
+
+	?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
 	
-	<?php include_once("./templates/header.php"); ?>
+	
 </head>
 <body>
 	<!--navbar-->
@@ -33,8 +42,8 @@
 				    </div>
 				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 					<div class="card-body">
-					<a href="./form.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add song</a>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add artist</a>
+					<a href="./modifysongdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add song</a>
+						<a href="./modifyartistdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add artist</a>
 						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add album</a>
 						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add genre</a>
 						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add instrument</a>

@@ -1,9 +1,19 @@
+<?php
 
+	include_once("./templates/header.php"); 
+
+
+if(isset($_SESSION["username"]))
+{
+
+	header("location: ../song-db/home.php");
+	exit();
+}
+?>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-	<?php include_once("./templates/header.php"); ?>
 </head>
 <body>
 	<br><br>

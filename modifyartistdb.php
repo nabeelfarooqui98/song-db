@@ -3,7 +3,7 @@
 
 
 
-<form method="POST" action="./queryhandler.php">
+<form method="POST" action="./queryhandler.php" style="width:90%;">
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">First Name</label>
     <div class="col-10">
@@ -30,7 +30,7 @@
 
 <?php
 
-//to display success of fail when we return from the queryhandler (whhich passess the result in url)
+//to display success or failure when we return from the queryhandler (whhich passess the result in url)
 
 if(isset($_GET['result']))
 {
@@ -93,28 +93,6 @@ if( $_GET['result'] == 'false')
               echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;//. mysql_error();
             }
         ?>
-
-
-      <!--
-       <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
--->
 
 
       </tbody>

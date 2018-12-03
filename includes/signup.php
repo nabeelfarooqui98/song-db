@@ -1,4 +1,6 @@
 <?php
+
+
 if(isset($_POST['signup-submit']))
 {
 	include('../database/db.php');
@@ -32,7 +34,7 @@ if(isset($_POST['signup-submit']))
 				session_start();
 				$_SESSION['userID'] = $row['Uid'];
 				$_SESSION['username'] = $row['username'];
-				header("location: ../home.php?loginSuccessful");
+				header("location: ../dash.php?loginSuccessful");
 				exit();	
 			}
 			else{

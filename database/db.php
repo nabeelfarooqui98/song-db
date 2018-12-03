@@ -1,5 +1,5 @@
 <?php
-	$conn = mysqli_connect('localhost','root','','db_project');
+	$conn = mysqli_connect('localhost','root','','firebase2');
 	
 	if (mysqli_connect_errno())
   	{
