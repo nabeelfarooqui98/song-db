@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2018 at 06:29 PM
+-- Generation Time: Dec 03, 2018 at 06:39 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -105,7 +105,8 @@ CREATE TABLE `users` (
 -- Indexes for table `album`
 --
 ALTER TABLE `album`
-  ADD PRIMARY KEY (`album_id`);
+  ADD PRIMARY KEY (`album_id`),
+  ADD KEY `artist_id` (`artist_id`);
 
 --
 -- Indexes for table `artist`
@@ -123,7 +124,10 @@ ALTER TABLE `genre`
 -- Indexes for table `song`
 --
 ALTER TABLE `song`
-  ADD PRIMARY KEY (`song_id`);
+  ADD PRIMARY KEY (`song_id`),
+  ADD KEY `genre_id` (`genre_id`),
+  ADD KEY `album_id` (`album_id`),
+  ADD KEY `artist_id` (`artist_id`);
 
 --
 -- Indexes for table `users`
@@ -164,6 +168,24 @@ ALTER TABLE `song`
 --
 ALTER TABLE `users`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `album`
+--
+ALTER TABLE `album`
+  ADD CONSTRAINT `album_ibfk_1` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`artist_id`);
+
+--
+-- Constraints for table `song`
+--
+ALTER TABLE `song`
+  ADD CONSTRAINT `song_ibfk_1` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`),
+  ADD CONSTRAINT `song_ibfk_2` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`),
+  ADD CONSTRAINT `song_ibfk_3` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`artist_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
