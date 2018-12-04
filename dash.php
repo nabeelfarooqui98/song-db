@@ -44,14 +44,9 @@
 					<div class="card-body">
 					<a href="./modifysongdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add song</a>
 						<a href="./modifyartistdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add artist</a>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add album</a>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add genre</a>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add instrument</a>
-						<br><br>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add language</a>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add occupation</a>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add band</a>
-						<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add user</a>
+						<a href="./modifyalbumdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add album</a>
+						<a href="./modifygenredb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add genre</a>
+						<a href="./modifyuserdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>add user</a>
 					</div>
 				</div>
 		</div>
@@ -70,39 +65,11 @@
 					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>update album</a>
 					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>update genre</a>
 					<br><br>
-					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>update instrument</a>
-					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>update language</a>
-					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>update occupation</a>
-					<br><br>
-					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>update band</a>
 					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>update user</a>
 				</div>
 			</div>
 		</div>
-		<div class="card">
-			<div class="card-header" id="headingThree">
-			      <h5 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-					delete record
-					</button>
-					</h5>
-			</div>
-			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-			<div class="card-body">
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete song</a>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete artist</a>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete album</a>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete genre</a>
-				<br><br>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete instrument</a>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete language</a>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete occupation</a>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete band</a>
-				<br><br>
-				<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>delete user</a>
-			</div>
-		</div>
-	</div>
+		
 </div>
 
 </div>
