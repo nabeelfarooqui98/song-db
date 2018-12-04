@@ -6,8 +6,8 @@
 if(isset($_SESSION["username"]))
 {
 
-	header("location: ../song-db/home.php");
-	exit();
+		header("location: ../song-db/home.php");
+		exit();
 }
 ?>
 

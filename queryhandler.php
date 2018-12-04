@@ -54,11 +54,144 @@ else if(isset($_GET['delete_artist']))
 		
 	}
 }
-else{
+else if(isset($_POST['addgenre_btn']))
+{
+
+	$sql = 'insert into genre (genre_name) values ("' . $_POST['genrename'] . '")';
+
+	if ($result = mysqli_query($conn,$sql))
+	{
+		echo "genre added \r\n";
+		header('Location: ./modifygenredb.php');
+     	exit();
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		
+	}
 
 }
+else if(isset($_GET['delete_genre']))
+{
+	$sql = "delete from genre where genre_id=" . $_GET['delete_genre'];
+
+	if ($result = mysqli_query($conn,$sql))
+	{
+		echo "genre deleted \r\n";
+		header('Location: ./modifygenredb.php');
+     	exit();
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		
+	}
+}
+else if(isset($_POST['addsong_btn']))
+{
+
+//	print_r($_POST);
+//	echo $_POST['artistname'];
+	//CAHNGE
+
+//artist
+	$pieces = explode(" ", $_POST['artistname']);
+	
+
+	if(!isset($pieces[1]))
+	{
+		$pieces[1] = "";
+	}
+
+	$sql = 'select artist_id from artist where fname="' . $pieces[0] . '" and lname ="' . $pieces[1] . '"';
+	// echo 'QUERY=' .$sql . "END QUERY";
+	if ($result = mysqli_query($conn,$sql))
+	{
+		while ($row = $result->fetch_assoc()) 
+                {
+                  	$artistid = $row['artist_id'];
+                	// echo $artistid . "<- \r\n";
+                } 
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		
+	}
+
+//album
+	
+	
+	$sql = 'select album_id from album where album_name="' .  $_POST['albumname'] . '"';
+	// echo 'QUERY=' .$sql . "END QUERY";
+	if ($result = mysqli_query($conn,$sql))
+	{
+		while ($row = $result->fetch_assoc()) 
+                {
+                  	$albumid = $row['album_id'];
+                	// echo $artistid . "<- \r\n";
+                } 
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		
+	}
+
+//genre
+		$sql = 'select genre_id from genre where genre_name="' .  $_POST['genrename'] . '"';
+	// echo 'QUERY=' .$sql . "END QUERY";
+	if ($result = mysqli_query($conn,$sql))
+	{
+		while ($row = $result->fetch_assoc()) 
+                {
+                  	$genreid = $row['genre_id'];
+                	// echo $artistid . "<- \r\n";
+                } 
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		
+	}
+	$sql = 'insert into song (songName,releaseDate,musicLink,LyricsLink,artist_id,album_id,genre_id) values ("' . $_POST['songname'] . '" ,"' . $_POST['releasedate'] . '","' .$_POST['youtube'].'","'.$_POST['lyrics'].'",' .$artistid . ',' . $albumid. ','.$genreid . ')';
+	
 
 
+	// $sql = 'insert into song (songName,releaseDate,artist_id,album_id,genre_id,musicLink,LyricsLink) values ("' . $_POST['songname'] . '" ,"' . $_POST['releasedate'] . '",' . $artistid . ',' . $albumid "," . $genreid . ',"' . $_POST['youtube'] . '","' . $_POST['lyrics'] . '")';
+
+	echo $sql;
+
+	if ($result = mysqli_query($conn,$sql))
+	{
+		echo "song added \r\n";
+		header('Location: ./modifysongdb.php');
+     	exit();
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		
+	}
+
+}
+else if(isset($_GET['delete_song']))
+{
+	$sql = "delete from song where song_id=" . $_GET['delete_song'];
+
+	if ($result = mysqli_query($conn,$sql))
+	{
+		echo "song deleted \r\n";
+		header('Location: ./modifysongdb.php');
+     	exit();
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		
+	}
+}
 ?>
 
 </body>
