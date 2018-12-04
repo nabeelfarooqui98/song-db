@@ -1,4 +1,12 @@
-  <?php include_once("./templates/header.php"); ?>
+  <?php include_once("./templates/header.php"); 
+
+  if(!isset($_SESSION['username']))
+  {
+    header("location: ../song-db/loginpage.php");
+    exit();
+  }
+
+  ?>
 
 
 
@@ -14,7 +22,7 @@
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Last Name</label>
     <div class="col-10">
-      <input class="form-control" type="text"  name="lname" required>
+      <input class="form-control" type="text"  name="lname" >
     </div>
   </div>
 
@@ -82,6 +90,7 @@ if( $_GET['result'] == 'false')
                   echo '<td>' . $row['lname'] .     '</td>';
                   echo '<td>' . $row['dateOfBirth'] .       '</td>';
                   echo '<td><a href="./queryhandler.php?delete_artist=' . $row['artist_id'] .  '">Delete Artist</a></td>';
+                  echo '<td><a href="./updateartist.php?artist_id=' . $row['artist_id'] .  '">Update Artist</a></td>';
                   
                   echo '</tr>';
 

@@ -35,7 +35,26 @@ if ($result = mysqli_query($conn,$sql))
 	}
 
 }
+else if(isset($_POST['updateartist_btn']))
+{
+// 	echo $_GET['genre_id'];
+// echo $_POST['genrename'];
 
+$sql = 'update artist set fname ="' . $_POST['fname'] . '" , lname ="' . $_POST['lname'] . '", dateOfBirth ="' . $_POST['dateOfBirth'] . '" where artist_id = ' . $_GET['artist_id'];
+
+if ($result = mysqli_query($conn,$sql))
+	{
+		echo "artist add success \r\n";
+		header('Location: ./modifyartistdb.php?result=true');
+     	exit();
+	}
+	else
+	{
+		echo "query run error: \r\n" . mysqli_error($conn) . "\r\n" ;
+		header('Location: ./modifyartistdb.php?result=false');
+	}
+
+}
 
 ?>
 </body>

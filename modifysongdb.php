@@ -1,4 +1,12 @@
-  <?php include_once("./templates/header.php"); ?>
+  <?php include_once("./templates/header.php"); 
+
+  if(!isset($_SESSION['username']))
+  {
+    header("location: ../song-db/loginpage.php");
+    exit();
+  }
+
+  ?>
 
 <form method="POST" action="./queryhandler.php" style="width:90%;">
   <div class="form-group row">
@@ -18,7 +26,7 @@
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Youtube Link</label>
     <div class="col-10">
-      <input class="form-control" type="text"  name="youtube" required>
+      <input class="form-control" type="text"  name="youtube" >
     </div>
   </div>
  

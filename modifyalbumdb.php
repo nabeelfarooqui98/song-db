@@ -1,4 +1,12 @@
-  <?php include_once("./templates/header.php"); ?>
+  <?php include_once("./templates/header.php");
+
+  if(!isset($_SESSION['username']))
+  {
+    header("location: ../song-db/loginpage.php");
+    exit();
+  }
+
+   ?>
 
 <form method="POST" action="./queryhandler.php" style="width:90%;">
   <div class="form-group row">
