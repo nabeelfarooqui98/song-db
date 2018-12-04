@@ -4,28 +4,28 @@
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Song Name</label>
     <div class="col-10">
-      <input class="form-control" type="text"   name="songname">
+      <input class="form-control" type="text"   name="songname" required>
     </div>
   </div>
 
 <div class="form-group row">
     <label for="example-date-input" class="col-2 col-form-label">Release Date</label>
     <div class="col-10">
-      <input class="form-control" type="date"  name="releasedate">
+      <input class="form-control" type="date"  name="releasedate" required>
     </div>
   </div>
  
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Youtube Link</label>
     <div class="col-10">
-      <input class="form-control" type="text"  name="youtube">
+      <input class="form-control" type="text"  name="youtube" required>
     </div>
   </div>
  
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Lyrics Link</label>
     <div class="col-10">
-      <input class="form-control" type="text"  name="lyrics">
+      <input class="form-control" type="text"  name="lyrics" required>
     </div>
   </div>
 

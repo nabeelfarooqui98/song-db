@@ -7,14 +7,14 @@
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">First Name</label>
     <div class="col-10">
-      <input class="form-control" type="text"   name="fname">
+      <input class="form-control" type="text"   name="fname" required>
     </div>
   </div>
 
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Last Name</label>
     <div class="col-10">
-      <input class="form-control" type="text"  name="lname">
+      <input class="form-control" type="text"  name="lname" required>
     </div>
   </div>
 
@@ -22,7 +22,7 @@
   <div class="form-group row">
     <label for="example-date-input" class="col-2 col-form-label">Date of Birth</label>
     <div class="col-10">
-      <input class="form-control" type="date"  name="dob">
+      <input class="form-control" type="date"  name="dob" required>
     </div>
   </div>
 

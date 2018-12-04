@@ -24,11 +24,11 @@ if(isset($_SESSION["username"]))
 		    <form class="form-signup" action="includes/signup.php" method= "post">
 			  	<div class="form-group">
 			    	<label>Email address</label>
-			    	<input name="username" type="text" class="form-control"  placeholder="Enter email">
+			    	<input name="username" type="text" class="form-control"  placeholder="Enter email" required>
 		  		</div>
 		  	 <div class="form-group">
 		    	<label>Password</label>
-		    	<input name="password" type="password" class="form-control" placeholder="Password">
+		    	<input name="password" type="password" class="form-control" placeholder="Password" required>
 		 	 </div>
 		  <button name="signup-submit" type="submit" class="btn btn-primary mx-auto">Submit</button>
 		  <span><a href="#">Register</a></span>

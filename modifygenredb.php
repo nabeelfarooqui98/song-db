@@ -4,7 +4,7 @@
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">Genre</label>
     <div class="col-10">
-      <input class="form-control" type="text"   name="genrename">
+      <input class="form-control" type="text"   name="genrename" required>
     </div>
   </div>
 
