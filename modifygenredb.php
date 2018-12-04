@@ -63,6 +63,9 @@ if( $_GET['result'] == 'false')
                                     
 
                   echo '<td><a href="./queryhandler.php?delete_genre=' . $row['genre_id'] .  '">Delete Genre</a></td>';
+
+                  echo '<td><a href="./updategenre.php?genre_id=' . $row['genre_id'] .  '">Update Genre</a></td>';
+
                   
                   echo '</tr>';
 

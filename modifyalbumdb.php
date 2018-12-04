@@ -4,7 +4,7 @@
   <div class="form-group row">
     <label for="example-text-input" class="col-2 col-form-label">album Name</label>
     <div class="col-10">
-      <input class="form-control" type="text"   name="albumname">
+      <input class="form-control" type="text"   name="albumname" required>
     </div>
   </div>
 
@@ -38,11 +38,11 @@
   <div class="form-group row">
     <label for="example-date-input" class="col-2 col-form-label">Releases Date</label>
     <div class="col-10">
-      <input class="form-control" type="date"  name="releaseDate">
+      <input class="form-control" type="date"  name="releaseDate" required>
     </div>
   </div>
 
-<button type="submit" name="addalbum_btn" class="btn btn-primary">Insert Albumaa</button>
+<button type="submit" name="addalbum_btn" class="btn btn-primary">Insert Album</button>
 
 <?php
 
@@ -98,7 +98,7 @@ if( $_GET['result'] == 'false')
                   echo '<td>' . $row['releaseDate'] .     '</td>';
                   echo '<td>' . $row['fname'] . " " . $row['lname'] .  '</td>';
 
-                  echo '<td><a href="./queryhandler.php?delete_album=' . $row['album_id'] .  '">Delete Genre</a></td>';
+                  echo '<td><a href="./queryhandler.php?delete_album=' . $row['album_id'] .  '">Delete Album</a></td>';
                   
                   echo '</tr>';
 

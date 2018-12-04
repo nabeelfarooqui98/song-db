@@ -101,17 +101,21 @@ else if(isset($_POST['addsong_btn']))
 
 	if(!isset($pieces[1]))
 	{
-		$pieces[1] = "";
+		$sql = 'select artist_id from artist where fname="' . $pieces[0] . '"';
+	}
+	else{
+		$sql = 'select artist_id from artist where fname="' . $pieces[0] . '" and lname ="' . $pieces[1] . '"';	
 	}
 
-	$sql = 'select artist_id from artist where fname="' . $pieces[0] . '" and lname ="' . $pieces[1] . '"';
+	
 	// echo 'QUERY=' .$sql . "END QUERY";
+	echo $sql;
 	if ($result = mysqli_query($conn,$sql))
 	{
 		while ($row = $result->fetch_assoc()) 
                 {
                   	$artistid = $row['artist_id'];
-                	// echo $artistid . "<- \r\n";
+                	echo $artistid . "<- \r\n";
                 } 
 	}
 	else
@@ -197,13 +201,14 @@ else if(isset($_POST['addalbum_btn']))
 {
 	$pieces = explode(" ", $_POST['artistname']);
 	
-
 	if(!isset($pieces[1]))
 	{
-		$pieces[1] = "";
+		$sql = 'select artist_id from artist where fname="' . $pieces[0] . '"';
+	}
+	else{
+		$sql = 'select artist_id from artist where fname="' . $pieces[0] . '" and lname ="' . $pieces[1] . '"';	
 	}
 
-	$sql = 'select artist_id from artist where fname="' . $pieces[0] . '" and lname ="' . $pieces[1] . '"';
 	// echo 'QUERY=' .$sql . "END QUERY";
 	if ($result = mysqli_query($conn,$sql))
 	{
