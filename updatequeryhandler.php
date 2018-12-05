@@ -40,7 +40,7 @@ else if(isset($_POST['updateartist_btn']))
 // 	echo $_GET['genre_id'];
 // echo $_POST['genrename'];
 
-$sql = 'update artist set fname ="' . $_POST['fname'] . '" , lname ="' . $_POST['lname'] . '", dateOfBirth ="' . $_POST['dateOfBirth'] . '" where artist_id = ' . $_GET['artist_id'];
+$sql = 'update artist set fname ="' . $_POST['fname'] . '" , lname ="' . $_POST['lname'] . '", dateOfBirth ="' . $_POST['dob'] . '" where artist_id = ' . $_GET['artist_id'];
 
 if ($result = mysqli_query($conn,$sql))
 	{

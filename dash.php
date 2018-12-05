@@ -25,7 +25,7 @@
    						<h5 class="card-title"><i class="fa fa-user">&nbsp;</i>profile</h5>
     					<p class="card-text"><?php echo $_SESSION['username']; ?></p>
     					<p class="card-text">admin</p>
-    					<a href="#" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>Edit Profile</a>
+    					
  					</div>
 				</div>
 			</div>
@@ -46,11 +46,11 @@
 						<a href="./modifyartistdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>artist</a>
 						<a href="./modifyalbumdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>album</a>
 						<a href="./modifygenredb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>genre</a>
-						<a href="./modifyuserdb.php" class=" btn btn-primary"><i class="fa fa-edit">&nbsp;</i>user</a>
+						
 					</div>
 				</div>
 		</div>
-	</div>
+		</div>
 		
 </div>
 

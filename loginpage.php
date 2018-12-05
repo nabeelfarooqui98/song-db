@@ -31,10 +31,8 @@ if(isset($_SESSION["username"]))
 		    	<input name="password" type="password" class="form-control" placeholder="Password" required>
 		 	 </div>
 		  <button name="signup-submit" type="submit" class="btn btn-primary mx-auto">Submit</button>
-		  <span><a href="#">Register</a></span>
 		</form>
   </div>
-  <div class="card-footer" style="height: 80%;"><a href="#">forgotPassword?</a></div>
 </div>
 	</div>
 	
